@@ -1,0 +1,128 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Chivo Mono', monospace;
+    background: #e3f2fd;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+ul li {
+    list-style: none;
+}
+.container {
+    background: #141414;
+    color: #a2a2a2;
+    border-radius: 20px;
+    padding: 35px 40px;
+    width: 780px;
+}
+@media (max-width: 767px) {
+    .container {
+        transform: rotate(90deg);
+    }
+}
+/* Start header  */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;   
+    color: #b2b2b2; 
+}
+header h2 {
+    font-size: 32px;
+}
+header .volume {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 20px;
+    cursor: pointer;
+}
+header .volume label {
+    cursor: pointer;
+}
+header .keys-checkbox input {
+    appearance: none;
+    width: 60px;
+    height: 30px;
+    background: #4b4b4b;
+    border-radius: 20px;
+    position: relative;
+    cursor: pointer;
+}
+header .keys-checkbox input::before {
+    content: "";
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    background: #8c8c8c;
+    top: 50%;
+    transform: translateY(-50%);
+    border-radius: 50%;
+    left: 5px;
+    transition: 0.3s cubic-bezier(1, 0.1, 0.32, 0.85);
+}
+header .keys-checkbox input:checked::before,
+header .keys-checkbox input.active::before {
+    background: #e3f2fd;
+    left: 100%;
+    transform: translate(-100%, -50%);
+}
+.voleme-slider input {
+    accent-color: #8c8c8c;
+    outline: none;
+    border-radius: 30px;
+    height:6px
+ }
+/* Start keys  */
+.piano-keys ul {
+    display: flex;
+    text-transform: uppercase;
+    margin-top: 40px;
+}
+.piano-keys .key{
+    text-align: center;
+    position: relative;
+    cursor: pointer;
+}
+.piano-keys ul .white {
+    height: 230px;
+    width: 70px;
+    background: white;
+    border-radius: 8px;
+    background:  linear-gradient(#fff 96%, #eee 4%);
+    border: 1px solid black;
+}
+.piano-keys ul .white.active {
+    background:  linear-gradient(to bottom, #fff 0%, #eee 100% );
+    box-shadow: -5px 5px 20px inset rgb(0 0 0 / 20%);
+}
+.piano-keys ul .black {
+    height: 170px;
+    width: 40px;
+    background: linear-gradient(#333, #000);
+    color: white;
+    z-index: 222;
+    margin: 0px -22px 0px -22px;
+    border-radius: 0px 0px 8px 8px;
+}
+.piano-keys ul .black.active {
+    background:  linear-gradient(to bottom, #000 0%, #434343 100% );
+    box-shadow: -5px 5px 20px inset rgb(255 255 255 / 20%);
+}
+.piano-keys ul span {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 20px;
+}
+/* //for js */
+.piano-keys ul span.hide {
+    display: none;
+}
